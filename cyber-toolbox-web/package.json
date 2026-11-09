@@ -1,0 +1,11 @@
+{
+  "name": "cyber-toolbox-web",
+  "version": "1.0.0",
+  "description": "Petite boîte à outils de cybersécurité exécutée dans le navigateur",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "serve": "python3 -m http.server 8000"
+  },
+  "license": "MIT"
+}

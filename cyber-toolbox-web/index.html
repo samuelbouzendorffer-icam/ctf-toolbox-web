@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Politique de sécurité du contenu : seuls les fichiers de ce site peuvent s'exécuter, rien ne peut être envoyé ailleurs. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Cyber toolbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Cyber toolbox</h1>
+    <p>Petits outils de cybersécurité exécutés <strong>entièrement dans votre navigateur</strong> : aucune donnée n'est envoyée.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="t-enc">
+      <h2 id="t-enc">Encodages</h2>
+      <label for="enc-input">Texte</label>
+      <textarea id="enc-input" rows="3" spellcheck="false"></textarea>
+      <div class="row">
+        <label for="enc-type" class="inline">Format</label>
+        <select id="enc-type">
+          <option value="base64">Base64</option>
+          <option value="hex">Hexadécimal</option>
+          <option value="url">URL</option>
+        </select>
+        <button id="enc-encode" type="button">Encoder</button>
+        <button id="enc-decode" type="button">Décoder</button>
+      </div>
+      <pre id="enc-output" aria-live="polite"></pre>
+      <p class="note">Encoder n'est pas chiffrer : n'importe qui peut décoder, sans clé.</p>
+    </section>
+
+    <section class="card" aria-labelledby="t-hash">
+      <h2 id="t-hash">Empreinte SHA-256</h2>
+      <label for="hash-input">Texte</label>
+      <textarea id="hash-input" rows="3" spellcheck="false"></textarea>
+      <div class="row"><button id="hash-run" type="button">Calculer</button></div>
+      <pre id="hash-output" aria-live="polite"></pre>
+      <p class="note">Une fonction de hachage est à sens unique : on ne retrouve pas le texte à partir de l'empreinte.</p>
+    </section>
+
+    <section class="card" aria-labelledby="t-cipher">
+      <h2 id="t-cipher">César et Vigenère</h2>
+      <label for="cipher-input">Texte</label>
+      <textarea id="cipher-input" rows="3" spellcheck="false"></textarea>
+      <div class="row">
+        <label for="cipher-type" class="inline">Chiffre</label>
+        <select id="cipher-type">
+          <option value="caesar">César (décalage)</option>
+          <option value="vigenere">Vigenère (clé)</option>
+        </select>
+        <label for="cipher-key" class="inline">Clé</label>
+        <input id="cipher-key" type="text" value="3" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="row">
+        <button id="cipher-encrypt" type="button">Chiffrer</button>
+        <button id="cipher-decrypt" type="button">Déchiffrer</button>
+      </div>
+      <pre id="cipher-output" aria-live="polite"></pre>
+      <p class="note">Ces chiffres sont cassés depuis des siècles : ils servent à apprendre, pas à protéger des données.</p>
+    </section>
+
+    <section class="card" aria-labelledby="t-pw">
+      <h2 id="t-pw">Robustesse d'un mot de passe</h2>
+      <label for="pw-input">Mot de passe à tester</label>
+      <input id="pw-input" type="password" autocomplete="off" spellcheck="false">
+      <pre id="pw-output" aria-live="polite"></pre>
+      <p class="note">Estimation simple et indicative. N'y saisissez pas un mot de passe que vous utilisez réellement.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projet pédagogique de Samuel Bouzendorffer · Code sur <a href="https://github.com/samuelbouzendorffer-icam/cyber-toolbox-web">GitHub</a></p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
